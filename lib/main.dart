@@ -6,7 +6,7 @@ void main() => runApp(
         debugShowCheckedModeBanner: false, 
         home: BallPage(),
       ),
-    );
+    ); 
 
 // Represents the main page of the app
 class BallPage extends StatelessWidget {
