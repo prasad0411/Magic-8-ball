@@ -8,51 +8,51 @@ void main() => runApp(
       ),
     );
 
-    class BallPage extends StatelessWidget {
-      @override
-      Widget build(BuildContext context) {
-        return Scaffold(
-          backgroundColor: Colors.blueAccent,
-          appBar: AppBar(
-            backgroundColor: Colors.blue,
-            title: Text("Ask Me Anything"),
-            ),
-          body: Ball(),  
-        );
-      }
-    }
+// Represents the main page of the app
+class BallPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.blueAccent,
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        title: Text("Ask Me Anything"),
+      ),
+      body: Ball(),  
+    );
+  }
+}
 
-    class Ball extends StatefulWidget {
-      @override
-      _BallState createState() => _BallState();
-    }
-    
-    class _BallState extends State<Ball> {
+// Represents the Magic 8-Ball widget
+class Ball extends StatefulWidget {
+  @override
+  _BallState createState() => _BallState();
+}
 
-      int ballNumber= 1;
+// State class for the Ball widget
+class _BallState extends State<Ball> {
+  int ballNumber = 1; // Current ball image number
 
-      @override
-      Widget build(BuildContext context) {
-        return Center(
-          child: Row( 
-            children: [
-
-             Expanded(
-              
-              // ignore: deprecated_member_use
-              child: FlatButton(onPressed:(){
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Row(
+        children: [
+          Expanded(
+            child: FlatButton(
+              onPressed: () {
                 setState(() {
-                  print("$ballNumber");
-                   ballNumber= Random().nextInt(5)+1;
-                   }, );
-                    },
-
-                   child: Image(
-                    image: AssetImage('images/ball$ballNumber.png')
-                    )) 
-              )
-            ]
-          )  
-        );
-      }
-    }
+                  print("$ballNumber"); // Print the current ball number to the console
+                  ballNumber = Random().nextInt(5) + 1; // Generate a random ball number between 1 and 5
+                });
+              },
+              child: Image(
+                image: AssetImage('images/ball$ballNumber.png'), // Display the image of the ball based on ballNumber
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
