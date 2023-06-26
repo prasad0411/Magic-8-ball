@@ -3,7 +3,7 @@ import 'dart:math';
 
 void main() => runApp(
       MaterialApp(
-        debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: false, 
         home: BallPage(),
       ),
     );
